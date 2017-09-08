@@ -1,0 +1,42 @@
+﻿@model logictast.Entities.Customer
+@{
+    ViewBag.Title = "customer";
+}
+@using (Html.BeginForm())
+{
+    <center>
+        <h1>CUSTOMER DETAILS</h1>
+        <table>
+            <tr>
+                <td>CUSTOMER NAME</td>
+                <td>
+                    @Html.TextBoxFor(c => c.cust_name)
+                </td>
+            </tr>
+            <tr>
+                <td>CUSTOMER MOBILE</td>
+                <td>@Html.TextBoxFor(c => c.cust_mobile)</td>
+            </tr>
+            <tr>
+                <td>CUSTOMER EMAIL</td>
+                <td>@Html.TextBoxFor(c => c.cust_email)</td>
+            </tr>
+            <tr>
+                <td>CUSTOMER GENDER</td>
+                <td>
+                    @Html.RadioButtonFor(c => c.cust_gender, "MALE")MALE
+                    @Html.RadioButtonFor(c => c.cust_gender, "FEMALE")FEMALE
+                </td>
+            </tr>
+            <tr>
+                <td>CUSTOMER AGE</td>
+                <td>@Html.TextBoxFor(c => c.cust_age)</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Submit1" type="submit" value="SAVE" />
+                </td>
+            </tr>
+        </table>
+    </center>
+}
