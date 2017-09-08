@@ -57,19 +57,27 @@ namespace MvcApplication1.Controllers
             return View();
 
         }
-
-
         [HttpPost]
         public JsonResult GetCust(int cid)
         {
-            
-            return Json("ok updated",JsonRequestBehavior.AllowGet);
+            var p =( from n in _Customer.customer where n.c_id==cid select n).ToList();
+            return Json(p,JsonRequestBehavior.AllowGet);
         
         }
         [HttpPost]
         public JsonResult UpdateCust(int cid,string nm,string mb,string em,string gn,string ag)
         {
-            var p = from n in _Customer.customer where n.c_id == cid select n;
+
+            var query = from p in _Customer.customer where p.c_id ==cid select p;
+            //foreach (var item in query)
+            //{
+            //    item.c_name = nm;
+            //    item.c_mobile = mb;
+            //    item.c_email = em;
+            //    item.c_gender = gn;
+            //    item.c_age = ag;
+            //}
+            //_Customer.save(q)
             return Json("please check database records updated", JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
