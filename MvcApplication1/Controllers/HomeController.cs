@@ -62,8 +62,8 @@ namespace MvcApplication1.Controllers
         [HttpPost]
         public JsonResult GetCust(int cid)
         {
-            var p =( from n in _Customer.customer where n.c_id==cid select n).ToList();
-            return Json(p,JsonRequestBehavior.AllowGet);
+            
+            return Json("ok updated",JsonRequestBehavior.AllowGet);
         
         }
         [HttpPost]
